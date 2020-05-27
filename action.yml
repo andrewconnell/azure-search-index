@@ -1,0 +1,18 @@
+name: 'Azure Cognitive Search Reindex'
+description: 'Initiate reindex of an Azure Cognitive Search index'
+inputs:
+  azure-search-instance:
+    description: 'Name of the Azure Cognitive Search resource.'
+    required: true
+  azure-search-index:
+    description: 'Search index to reindex'
+    required: true
+  azure-search-admin-key: 
+    description: 'Admin key used to connect to Azure Cognitive Search instance'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  color: blue
+  icon: search

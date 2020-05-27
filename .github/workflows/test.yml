@@ -1,0 +1,14 @@
+on: [push]
+jobs:
+  test:
+    name: 'Test GitHub Action'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Reindex search
+        uses: ./
+        with:
+          azure-search-instance: ${{ secrets.SEARCH_INSTANCE }}
+          azure-search-index: ${{ secrets.SEARCH_INDEX }}
+          azure-search-admin-key: ${{ secrets.SEARCH_ADMIN_KEY }}
