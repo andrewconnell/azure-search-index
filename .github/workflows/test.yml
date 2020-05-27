@@ -10,5 +10,5 @@ jobs:
         uses: ./
         with:
           azure-search-instance: ${{ secrets.SEARCH_INSTANCE }}
-          azure-search-index: ${{ secrets.SEARCH_INDEX }}
+          azure-search-indexer: ${{ secrets.SEARCH_INDEXER }}
           azure-search-admin-key: ${{ secrets.SEARCH_ADMIN_KEY }}

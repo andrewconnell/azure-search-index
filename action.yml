@@ -4,10 +4,10 @@ inputs:
   azure-search-instance:
     description: 'Name of the Azure Cognitive Search resource.'
     required: true
-  azure-search-index:
-    description: 'Search index to reindex'
+  azure-search-indexer:
+    description: 'Search indexer to reindex'
     required: true
-  azure-search-admin-key: 
+  azure-search-admin-key:
     description: 'Admin key used to connect to Azure Cognitive Search instance'
     required: true
 runs:
