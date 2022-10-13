@@ -1,5 +1,4 @@
 import * as core from "@actions/core";
-import github from "@actions/github";
 import Axios from "axios";
 
 const API_VERSION = '2019-05-06';
@@ -27,10 +26,10 @@ async function run(): Promise<void> {
       await Axios.post(ENDPOINT, undefined, { headers: HEADERS } );
       core.info(`Search index '${SEARCH_INDEXER}' reindexed.`);
     } catch (error) {
-      core.setFailed(`Failed to reindex the search index ${SEARCH_INDEXER}: ${error.message}`);
+      if (error instanceof Error) core.setFailed(`Failed to reindex the search index ${SEARCH_INDEXER}: ${error.message}`);
     }
   } catch (error) {
-    core.setFailed('Unknown error occurred: ${error.message}');
+    if (error instanceof Error) core.setFailed(error.message);
   }
 }
 

@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -45,11 +49,13 @@ async function run() {
             core.info(`Search index '${SEARCH_INDEXER}' reindexed.`);
         }
         catch (error) {
-            core.setFailed(`Failed to reindex the search index ${SEARCH_INDEXER}: ${error.message}`);
+            if (error instanceof Error)
+                core.setFailed(`Failed to reindex the search index ${SEARCH_INDEXER}: ${error.message}`);
         }
     }
     catch (error) {
-        core.setFailed('Unknown error occurred: ${error.message}');
+        if (error instanceof Error)
+            core.setFailed(error.message);
     }
 }
 run();
