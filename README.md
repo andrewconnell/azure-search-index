@@ -16,7 +16,7 @@ This action requires the following inputs:
 
 ```yml
 - name: Reindex Azure Cognitive Search index
-  uses: andrewconnell/azure-search-index@1.0.1
+  uses: andrewconnell/azure-search-index@2
   with:
     azure-search-instance: my-search-resource-name
     azure-search-indexer: my-search-indexer-name

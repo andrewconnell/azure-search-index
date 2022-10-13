@@ -11,7 +11,7 @@ inputs:
     description: 'Admin key used to connect to Azure Cognitive Search instance'
     required: true
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
 branding:
   color: blue
