@@ -1,6 +1,6 @@
 {
   "name": "@voitanos/azure-search-index",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Azure Cognitive Search reindexer for Github ACtions",
   "main": "dist/index.js",
   "scripts": {
